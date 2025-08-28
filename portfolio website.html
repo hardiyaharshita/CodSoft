@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Harshita Hardiya — Frontend Developer</title>
+  <meta name="description" content="Portfolio of Harshita Hardiya — Frontend Developer & MERN Stack Enthusiast" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b0d12;           /* background */
+      --card:#121622;         /* surface */
+      --muted:#c8d1ff;        /* subtle text */
+      --text:#eaf0ff;         /* main text */
+      --accent:#7c9cff;       /* accent color */
+      --accent-2:#60e0b2;     /* secondary accent */
+      --ring: 0 0 0 3px rgba(124,156,255,.35);
+      --radius:22px;
+      --shadow: 0 10px 30px rgba(0,0,0,.35), 0 2px 10px rgba(0,0,0,.3);
+      --maxw:1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:linear-gradient(180deg,#0b0d12 0%, #0d0f16 100%);color:var(--text);font:16px/1.6 "Inter",system-ui,Segoe UI,Roboto,Arial;-webkit-font-smoothing:antialiased;}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:var(--maxw);margin-inline:auto;padding:0 20px}
+    header{position:sticky;top:0;z-index:50;background:rgba(11,13,18,.6);backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid rgba(255,255,255,.06)}
+    nav{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.3px}
+    .logo{width:36px;height:36px;border-radius:12px;background:conic-gradient(from 210deg, var(--accent), var(--accent-2));box-shadow:0 8px 20px rgba(124,156,255,.35)}
+    .links{display:flex;gap:18px;align-items:center}
+    .links a{color:var(--text);opacity:.8}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 16px;border-radius:12px;background:var(--accent);color:#0b0d12;font-weight:700;border:none;box-shadow:0 8px 18px rgba(124,156,255,.35);cursor:pointer}
+    .btn:hover{transform:translateY(-1px)}
+
+    /* Hero */
+    .hero{padding:72px 0}
+    .hero-inner{display:grid;grid-template-columns:1.2fr 1fr;align-items:center;gap:28px}
+    .badge{display:inline-flex;align-items:center;gap:10px;color:var(--muted);background:rgba(124,156,255,.12);border:1px solid rgba(124,156,255,.25);padding:8px 12px;border-radius:999px}
+    .title{font-size:clamp(28px,4.2vw,46px);line-height:1.1;margin:14px 0}
+    .subtitle{color:var(--muted);max-width:60ch}
+    .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
+    .ghost{background:transparent;border:1px solid rgba(124,156,255,.45);color:var(--text)}
+
+    .showcase{background: radial-gradient(1200px 700px at 80% -30%, rgba(124,156,255,.12), transparent 60%);}
+    .hero-card{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+    .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .stat{display:flex;flex-direction:column;padding:18px;border-radius:16px;background:rgba(255,255,255,.03);border:1px dashed rgba(255,255,255,.08)}
+    .stat b{font-size:22px}
+
+    /* Sections */
+    section{padding:64px 0}
+    .section-title{font-size:26px;margin:0 0 18px}
+    .section-desc{color:var(--muted);margin-top:-4px}
+
+    /* Skills */
+    .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+    .chip{padding:10px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03);}
+
+    /* Projects */
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column}
+    .thumb{aspect-ratio:16/9;background:linear-gradient(135deg, rgba(124,156,255,.25), rgba(96,224,178,.25));}
+    .card-body{padding:16px}
+    .card h3{margin:6px 0 8px;font-size:18px}
+    .tech{color:var(--muted);font-size:14px;margin-top:6px}
+    .card-actions{margin-top:auto;display:flex;gap:10px;padding:16px;border-top:1px solid rgba(255,255,255,.06)}
+
+    /* About */
+    .about{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .about p{margin:0}
+
+    /* Contact */
+    .contact{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .contact-card{padding:18px;border-radius:var(--radius);background:var(--card);border:1px solid rgba(255,255,255,.06)}
+
+    /* Footer */
+    footer{padding:28px 0;border-top:1px solid rgba(255,255,255,.06);color:var(--muted)}
+
+    /* Responsive */
+    @media (max-width: 960px){
+      .hero-inner{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr 1fr}
+      .about, .contact{grid-template-columns:1fr}
+    }
+    @media (max-width: 640px){
+      .grid{grid-template-columns:1fr}
+      nav .links{display:none}
+      .hero{padding:56px 0}
+    }
+    /* Skip link */
+    .skip{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+    .skip:focus{left:12px;top:12px;width:auto;height:auto;background:#fff;color:#000;padding:8px 12px;border-radius:8px}
+  </style>
+</head>
+<body>
+<a href="#main" class="skip">Skip to content</a>
+<header>
+  <div class="container">
+    <nav aria-label="Primary">
+      <div class="brand"><div class="logo" aria-hidden="true"></div> Harshita Hardiya</div>
+      <div class="links">
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="https://github.com/hardiyaharshita" target="_blank" rel="noopener" class="btn" aria-label="View my GitHub">GitHub</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <!-- Hero -->
+  <section class="hero showcase" aria-labelledby="intro">
+    <div class="container hero-inner">
+      <div>
+        <span class="badge" id="intro">Frontend Developer • MERN Enthusiast</span>
+        <h1 class="title">I design & build clean, responsive UIs that feel effortless.</h1>
+        <p class="subtitle">I'm Harshita, a CS graduate focused on crafting accessible, modern web experiences. I love turning ideas into usable products with React, modern CSS, and thoughtful UX.
+        </p>
+        <div class="cta">
+          <a class="btn" href="#projects">View Projects</a>
+          <a class="btn ghost" href="https://drive.google.com/file/d/1rRsVr0HZVBIf4KrGE3MTIfN2Ef8kZhem/view?usp=sharing" target="_blank" rel="noopener">Download Resume</a>
+        </div>
+        <div class="chips" style="margin-top:16px">
+          <span class="chip">Open to internships</span>
+          <span class="chip">Actively learning</span>
+          <span class="chip">Based in Indore</span>
+        </div>
+      </div>
+      <div class="hero-card" aria-label="Quick stats">
+        <div class="hero-grid">
+          <div class="stat"><b>10+</b><span>UI components built</span></div>
+          <div class="stat"><b>3</b><span>Featured projects</span></div>
+          <div class="stat"><b>100%</b><span>Responsive layouts</span></div>
+          <div class="stat"><b>∞</b><span>Curiosity & learning</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" aria-labelledby="projects-title">
+    <div class="container">
+      <h2 class="section-title" id="projects-title">Projects</h2>
+      <p class="section-desc">A few things I’ve designed and built. Each card links to the GitHub repo.</p>
+      <div class="grid" role="list">
+
+        <!-- Project 2 -->
+        <article class="card" role="listitem">
+          <div class="thumb" aria-hidden="true"></div>
+          <div class="card-body">
+            <h3>Urban Cart (E‑commerce UI)</h3>
+            <p>Modern shopping experience with smooth browsing, cart state, and consistent design tokens. Built mobile‑first.</p>
+            <p class="tech">Stack: React • Context/API • CSS Modules</p>
+          </div>
+          <div class="card-actions">
+            <a class="btn" href="https://github.com/hardiyaharshita/Urban-Cart" target="_blank" rel="noopener">GitHub</a>
+            <a class="btn ghost" href="#" aria-disabled="true">Live (optional)</a>
+          </div>
+        </article>
+        <!-- Project 3 -->
+        <article class="card" role="listitem">
+          <div class="thumb" aria-hidden="true"></div>
+          <div class="card-body">
+            <h3>Portfolio Site</h3>
+            <p>This portfolio as a simple, fast, and accessible static site. Focus on typography, spacing, and performance.</p>
+            <p class="tech">Stack: HTML • CSS • Vanilla JS</p>
+          </div>
+          <div class="card-actions">
+            <a class="btn" href="https://github.com/YOUR_GITHUB_USERNAME/portfolio" target="_blank" rel="noopener">GitHub</a>
+            <a class="btn ghost" href="#" aria-disabled="true">Live (optional)</a>
+          </div>
+        </article>
+        <!-- Project 1 -->
+        <article class="card" role="listitem">
+          <div class="thumb" aria-hidden="true"></div>
+          <div class="card-body">
+            <h3>Cultural Showcase (MERN)</h3>
+            <p>A responsive platform celebrating Indian culture—musical instruments, paintings, handwork, cuisines, and pottery—with a clean, accessible UI.</p>
+            <p class="tech">Stack: MongoDB • Express • React • Node</p>
+          </div>
+          <div class="card-actions">
+            <a class="btn" href="https://github.com/harshitahardiya/cultural-showcase" target="_blank" rel="noopener">GitHub</a>
+            <a class="btn ghost" href="#" aria-disabled="true">Live (optional)</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" aria-labelledby="skills-title">
+    <div class="container">
+      <h2 class="section-title" id="skills-title">Skills</h2>
+      <div class="chips" aria-label="Skill list">
+        <span class="chip">HTML</span>
+        <span class="chip">CSS</span>
+        <span class="chip">JavaScript</span>
+        <span class="chip">React</span>
+        <span class="chip">Bootstrap</span>
+  <!--     <span class="chip">Node.js</span> -->
+        <span class="chip">MongoDB</span>
+        <span class="chip">MySQL</span>
+        <span class="chip">Figma</span>
+        <span class="chip">Canva</span>
+        <span class="chip">Postman</span>
+        <span class="chip">Responsive Design</span>
+        <span class="chip">UI/UX Basics</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" aria-labelledby="about-title">
+    <div class="container about">
+      <div>
+        <h2 class="section-title" id="about-title">About Me</h2>
+        <p>Hi, I’m Harshita — a Computer Science graduate from Indore. I enjoy building clean, accessible, and responsive interfaces. While I’m early in my career, I’ve completed multiple personal projects and I’m continuously learning modern frontend practices and design fundamentals.</p>
+        <p class="section-desc" style="margin-top:10px">Currently exploring: design systems, component-driven UI, and performance-friendly CSS.</p>
+        <div class="cta" style="margin-top:14px">
+          <a class="btn" href="mailto:harshitahardiya17@gmail.com">Email Me</a>
+          <a class="btn ghost" href="https://www.linkedin.com/harshitahardiya" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+      <div class="contact-card">
+        <h3 style="margin:0 0 8px">Quick Links</h3>
+        <ul style="list-style:none;padding:0;margin:0;color:var(--muted);display:grid;gap:8px">
+          <li>GitHub: <a href="https://github.com/hardiyaharshita" target="_blank" rel="noopener">github.com/hardiyaharshita</a></li>
+          <li>Resume: <a href="YOUR_RESUME_LINK.pdf" target="_blank" rel="noopener">Download PDF</a></li>
+          <li>Location: Indore, India</li>
+          <li>Open to: Internships & Junior Roles</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" aria-labelledby="contact-title">
+    <div class="container contact">
+      <div class="contact-card">
+        <h2 class="section-title" id="contact-title">Contact</h2>
+        <p class="section-desc">I’d love to connect. Reach out for internships, collaborations, or feedback.</p>
+        <form onsubmit="event.preventDefault(); alert('Thanks! This demo form is not wired yet.');">
+          <label for="name">Name</label>
+          <input id="name" name="name" required style="width:100%;margin:6px 0 12px;padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:#0e111a;color:var(--text)" />
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required style="width:100%;margin:6px 0 12px;padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:#0e111a;color:var(--text)" />
+          <label for="msg">Message</label>
+          <textarea id="msg" name="msg" rows="4" required style="width:100%;margin:6px 0 12px;padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:#0e111a;color:var(--text)"></textarea>
+          <button class="btn" type="submit">Send Message</button>
+        </form>
+      </div>
+      <div class="contact-card">
+        <h3 style="margin-top:0">Find me online</h3>
+        <p class="section-desc">Prefer links? Here you go.</p>
+        <div class="chips">
+          <a class="chip" href="https://github.com/hardiyaharshita" target="_blank" rel="noopener">GitHub</a>
+          <a class="chip" href="https://www.linkedin.com/harshitahardiya" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="chip" href="mailto:harshitahardiya17@gmail.com">Email</a>
+        <!--  <a class="chip" href="#">Twitter/X (optional)</a> -->
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
+    <span>© <span id="year"></span> Harshita Hardiya</span>
+  <!--  <span>Built with semantic HTML & modern CSS • <a href="#top">Back to top</a></span> -->
+  </div>
+</footer>
+
+<script>
+  // Set current year
+  document.getElementById('year').textContent = new Date().getFullYear();
+  // Smooth scroll for internal links
+  document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{
+    const id=a.getAttribute('href');
+    if(id.length>1){
+      e.preventDefault();
+      document.querySelector(id).scrollIntoView({behavior:'smooth'});
+      history.pushState(null,'',id);
+    }
+  }));
+</script>
+</body>
+</html>
